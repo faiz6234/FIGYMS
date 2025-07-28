@@ -665,19 +665,16 @@
             });
         });
 
-        // Add click tracking (you can replace these with actual tracking code)
+        // Add click tracking and contact info
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
-                // Replace with actual tracking code
-                console.log('Button clicked:', this.textContent);
-                
-                // For demo purposes, show alert for CTA buttons
-                if (this.textContent.includes('Book') || this.textContent.includes('Demo')) {
-                    e.preventDefault();
-                    alert('This would normally open your booking calendar or demo signup form!');
-                }
+                e.preventDefault();
+                alert('Get in contact with faiz6234@g.ucla.edu');
             });
         });
     </script>
 </body>
 </html>
+   
+
+
