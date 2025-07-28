@@ -416,6 +416,32 @@
             flex-wrap: wrap;
         }
 
+        /* Contact Offer Section */
+        .contact-offer {
+            padding: 60px 0;
+            background: #34495e;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-offer h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .contact-offer p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .contact-offer strong {
+            color: #3498db;
+            font-weight: 700;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
@@ -480,7 +506,7 @@
         <nav class="container">
             <div class="nav">
                 <div class="logo">FIDIGITAL</div>
-                <a href="#contact" class="btn btn-primary">Book Free Call</a>
+                <a href="#offer" class="btn btn-primary">Book Free Call</a>
             </div>
         </nav>
     </header>
@@ -490,7 +516,7 @@
         <div class="container">
             <h1>Your Dream Clients Are<br><span class="highlight">Scrolling Past You</span></h1>
             <p>Let's fix that. We build conversion machines that turn your fitness expertise into consistent revenue.</p>
-            <a href="#solutions" class="btn btn-primary cta-button">Stop Losing Money Online</a>
+            <a href="#offer" class="btn btn-primary cta-button">Stop Losing Money Online</a>
         </div>
     </section>
 
@@ -610,9 +636,17 @@
             <h2>Ready to Stop Guessing and Start Converting?</h2>
             <p>Your expertise deserves a system that works as hard as you do.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-secondary">Book a Free Strategy Call</a>
-                <a href="#" class="btn btn-secondary">Get Your Free Demo Funnel</a>
+                <a href="#offer" class="btn btn-secondary">Book a Free Strategy Call</a>
+                <a href="#offer" class="btn btn-secondary">Get Your Free Demo Funnel</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Contact Offer Section -->
+    <section class="contact-offer" id="offer">
+        <div class="container">
+            <h2>Ready to Discuss Your Custom Solution?</h2>
+            <p>To discuss an offer where we execute for you and you only pay if you're satisfied, get in contact with <strong>faiz6234@g.ucla.edu</strong></p>
         </div>
     </section>
 
@@ -668,8 +702,8 @@
         // Add click tracking and contact info
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Get in contact with faiz6234@g.ucla.edu');
+                // Let the default anchor behavior work (scroll to #offer section)
+                console.log('Button clicked:', this.textContent);
             });
         });
     </script>
