@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiDigital - Your Dream Clients Are Scrolling Past You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            font-style: italic;
+            color: #333;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #4285f4;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #4285f4;
+            border: 2px solid #4285f4;
+        }
+
+        .btn-secondary:hover {
+            background: #4285f4;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%);
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .hero .highlight {
+            color: #4285f4;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            font-size: 1.1rem;
+            padding: 16px 32px;
+            margin-bottom: 80px;
+        }
+
+        /* Problems Section */
+        .problems {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .problems h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .problems .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #e74c3c;
+            margin-bottom: 60px;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .problem-card:nth-child(1) .problem-icon {
+            background: #ffe5e5;
+            color: #e74c3c;
+        }
+
+        .problem-card:nth-child(2) .problem-icon {
+            background: #fff3e0;
+            color: #ff9800;
+        }
+
+        .problem-card:nth-child(3) .problem-icon {
+            background: #fff9c4;
+            color: #fbc02d;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .problem-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 80px 0;
+            background: #f8f9ff;
+        }
+
+        .solutions h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .solutions .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .solution-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .solution-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .solution-card:nth-child(1) .solution-icon {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+
+        .solution-card:nth-child(2) .solution-icon {
+            background: #e8f5e8;
+            color: #4caf50;
+        }
+
+        .solution-card:nth-child(3) .solution-icon {
+            background: #f3e5f5;
+            color: #9c27b0;
+        }
+
+        .solution-card:nth-child(4) .solution-icon {
+            background: #ffebee;
+            color: #f44336;
+        }
+
+        .solution-card:nth-child(5) .solution-icon {
+            background: #fff8e1;
+            color: #ff9800;
+        }
+
+        .solution-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .solution-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Results Section */
+        .results {
+            padding: 80px 0;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+
+        .results h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .results .subtitle {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            margin-bottom: 60px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .result-item:nth-child(1) .result-number {
+            color: #3498db;
+        }
+
+        .result-item:nth-child(2) .result-number {
+            color: #2ecc71;
+        }
+
+        .result-item:nth-child(3) .result-number {
+            color: #9b59b6;
+        }
+
+        .result-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .result-description {
+            color: #bdc3c7;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .how-it-works .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 60px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: #4285f4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 30px;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 80px 0;
+            background: #4285f4;
+            color: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .problems-grid,
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="container">
+            <div class="nav">
+                <div class="logo">FIDIGITAL</div>
+                <a href="#contact" class="btn btn-primary">Book Free Call</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your Dream Clients Are<br><span class="highlight">Scrolling Past You</span></h1>
+            <p>Let's fix that. We build conversion machines that turn your fitness expertise into consistent revenue.</p>
+            <a href="#solutions" class="btn btn-primary cta-button">Stop Losing Money Online</a>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <h2>Sound Familiar?</h2>
+            <p class="subtitle">These problems are killing your revenue potential</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">📱</div>
+                    <h3>Great IG, Zero Funnel</h3>
+                    <p>You've got thousands of followers but can't convert them into paying clients. Your content gets likes but not leads.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📅</div>
+                    <h3>Manual Booking Nightmare</h3>
+                    <p>You're spending hours on DMs and texts just to book one session. Your time should be spent training, not chasing bookings.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📈</div>
+                    <h3>Feast or Famine Revenue</h3>
+                    <p>One month you're booked solid, the next you're scrambling for clients. You need predictable income, not revenue rollercoaster.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <h2>Here's How We Fix It</h2>
+            <p class="subtitle">Complete conversion system that works 24/7</p>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">💻</div>
+                    <h3>Sales-Focused Website</h3>
+                    <p>A conversion-optimized website that sells your services while you sleep. No more lost leads.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📱</div>
+                    <h3>Intelligent Booking System</h3>
+                    <p>Automated booking that handles scheduling, payments, and follow-ups. Your calendar fills itself.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">📄</div>
+                    <h3>Branded Sales Pages That Sell</h3>
+                    <p>High-converting landing pages for each service. Turn visitors into clients with proven psychology.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">✉️</div>
+                    <h3>Email Funnels That Convert</h3>
+                    <p>Automated email sequences that nurture leads and book appointments. Stay top-of-mind effortlessly.</p>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">🎯</div>
+                    <h3>VSL Script & Lead Magnet Setup</h3>
+                    <p>Professional video sales letters and irresistible lead magnets that capture and convert your audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="results">
+        <div class="container">
+            <h2>Results That Speak</h2>
+            <p class="subtitle">Real outcomes from real trainers</p>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">2x</div>
+                    <div class="result-title">Signups in 3 weeks</div>
+                    <div class="result-description">Average client increase</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">85%</div>
+                    <div class="result-title">Higher conversion</div>
+                    <div class="result-description">From website visitors</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">20+</div>
+                    <div class="result-title">Funnels built</div>
+                    <div class="result-description">For fitness professionals</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p class="subtitle">Three simple steps to transform your business</p>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>You Tell Us What You Offer</h3>
+                    <p>Share your services, target clients, and current challenges. We'll analyze your situation and create a custom strategy.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Build Your Conversion Engine</h3>
+                    <p>Our team creates your complete funnel system - website, booking system, email sequences, and sales pages.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>You Only Pay If You Love It</h3>
+                    <p>We're so confident in our system that we guarantee results. If you don't see improvement, you don't pay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2>Ready to Stop Guessing and Start Converting?</h2>
+            <p>Your expertise deserves a system that works as hard as you do.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-secondary">Book a Free Strategy Call</a>
+                <a href="#" class="btn btn-secondary">Get Your Free Demo Funnel</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.problem-card, .solution-card, .result-item, .step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add hover effects to buttons
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add click tracking (you can replace these with actual tracking code)
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Replace with actual tracking code
+                console.log('Button clicked:', this.textContent);
+                
+                // For demo purposes, show alert for CTA buttons
+                if (this.textContent.includes('Book') || this.textContent.includes('Demo')) {
+                    e.preventDefault();
+                    alert('This would normally open your booking calendar or demo signup form!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
